@@ -49,24 +49,12 @@ const filePath = process.env.uploadfile;
     { timeout: 120000 }
   );
   await page.click("#cpcontainer > div.box.box0.cp.create.masonry-brick > div");
-  // await page.evaluate(
-  //   document
-  //     .querySelector(
-  //       "#cpcontainer > div.box.box0.cp.create.masonry-brick > div"
-  //     )
-  //     .click()
-  // );
-
-  // await page.evaluate(() => {
-  //   document.querySelector("#canvas_title").value = "title";
-  // });
   await page.type("#canvas_title", "title");
 
   await page.waitFor("#tool_importvec", { timeout: 120000 });
   await page.click("#tool_importvec");
 
   console.log("ファイルアップロード開始");
-  
   const input = await page.$("#importfile");
   await input.uploadFile(filePath);
   console.log("ファイルアップロード終了");
