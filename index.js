@@ -14,8 +14,11 @@ const puppeteer = require("puppeteer");
   });
 
   const page = await browser.newPage();
-  await page.goto("https://www.google.com");
-  await page.screenshot({ path: "screenshot.png" });
+  await page.goto("https://canvasworkspace.brother.com/jp/");
+  // await page.screenshot({ path: "screenshot.png" });
+
+  await page.type.$('#UserName',"hoge");
+  await page.type.$('#Password',"hoge");
 
   await browser.close();
 })();
